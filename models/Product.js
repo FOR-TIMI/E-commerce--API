@@ -24,7 +24,7 @@ id : {
 },
 
 // product_name column
-productName: {
+product_name: {
   // String
   type: DataTypes.STRING,
   // Doesn't allow null values
@@ -62,19 +62,15 @@ stock : {
  
 },
 
-//Category column
- // References the category model's id
-categoryId: {
-  type : DataTypes.INTEGER,
+category_id: {
+  type: DataTypes.INTEGER,
   references: {
-    model: 'category',
-    key: 'id'
+      model: 'category',
+      key: 'id'
   },
   onUpdate: 'cascade',
   onDelete: 'cascade'
 }
-,
-
 
   },
   {

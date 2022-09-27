@@ -19,7 +19,7 @@ Category.init(
       autoIncrement: true  
     },
     // category_name column
-    categoryName:{
+    category_name:{
       // String
       type: DataTypes.STRING,
       // Doesn't allow null values
@@ -29,8 +29,8 @@ Category.init(
   {
     sequelize,
     timestamps: false,
-    freezeTableName: true,
     underscored: true,
+    freezeTableName: true,
     modelName: 'category',
   }
 );
