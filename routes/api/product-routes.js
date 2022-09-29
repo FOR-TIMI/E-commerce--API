@@ -40,11 +40,10 @@ router.get('/:id', async(req, res) => {
   try{
     // find all products
     const products = await Product.findOne({
-        
-        where: {
+      // be sure to include its associated Category and Tag data
+        where : {
           id : req.params.id
         },
-      // be sure to include its associated Category and Tag data
         include : [
           {
               model: Category,
@@ -52,13 +51,13 @@ router.get('/:id', async(req, res) => {
           },
           {
               model: Tag,
-              attributes: ['id', 'tag_name'],
               through: ProductTag,
-              as: 'product_tags'
+              as: 'tags'
           }
       ]
     
       })
+    
     if(!products){
       res.status(404).json({message: "That product does not exist"})
     }
